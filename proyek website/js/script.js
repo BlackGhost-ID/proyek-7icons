@@ -19,39 +19,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Data event contoh, bisa diganti dengan data asli / API
+const calendar = document.getElementById("calendar");
+const eventDetails = document.getElementById("event-details");
+
 const events = {
-  "2025-05-02": {
-    title: "Rapat Tim",
-    description: "Rapat bulanan tim di ruang 401.",
-  },
-  "2025-05-06": {
-    title: "Deadline Proyek",
-    description: "Batas akhir pengumpulan dokumen proyek.",
-  },
-  "2025-05-11": {
-    title: "Workshop",
-    description: "Workshop design thinking, jam 10 pagi.",
-  },
+  5: "Meeting tim pengembang",
+  12: "Peluncuran fitur baru",
+  20: "Workshop desain UI",
 };
 
-const dates = document.querySelectorAll(".date");
-const eventInfo = document.getElementById("event-info");
+function generateCalendar(days = 30) {
+  for (let i = 1; i <= days; i++) {
+    const day = document.createElement("div");
+    day.classList.add("day");
+    day.textContent = i;
 
-dates.forEach((dateEl) => {
-  dateEl.addEventListener("click", () => {
-    dates.forEach((d) => d.classList.remove("selected"));
-    dateEl.classList.add("selected");
-
-    const dateKey = dateEl.dataset.date;
-    if (events[dateKey]) {
-      const event = events[dateKey];
-      eventInfo.innerHTML = `
-          <div class="event-title">${event.title}</div>
-          <div class="event-desc">${event.description}</div>
-        `;
-    } else {
-      eventInfo.innerHTML =
-        '<p class="no-event">Tidak ada event pada tanggal ini.</p>';
+    if (events[i]) {
+      day.classList.add("event-day");
+      day.addEventListener("click", () => {
+        eventDetails.textContent = `Tanggal ${i}: ${events[i]}`;
+        eventDetails.classList.remove("hidden");
+      });
     }
-  });
-});
+
+    calendar.appendChild(day);
+  }
+}
+
+generateCalendar();

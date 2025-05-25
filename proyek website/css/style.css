@@ -139,127 +139,119 @@ body {
   ); /* Warna pink lebih gelap saat hover */
 }
 
+/* Wrapper grid layout */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: auto 340px;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* Artikel */
 .article-section {
   display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  padding: 40px;
-  background-color: #f4f4f4;
-  margin-top: 60px; /* Jarak dari bagian hero */
 }
 
 .card {
-  background: white;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  padding: 16px;
 }
 
 .card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  border-radius: 6px;
 }
 
 .card h3 {
-  margin: 16px;
-  font-size: 20px;
-  color: #333;
+  margin: 0;
 }
 
 .card p {
-  margin: 0 16px 16px;
-  color: #555;
   font-size: 14px;
+  color: #555;
 }
 
 .card .btn {
-  margin: 0 16px 16px;
-  align-items: start;
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px;
   background-color: #1f2937;
   color: white;
-  padding: 8px 12px;
   text-decoration: none;
+  font-weight: bold;
   border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.card .btn:hover {
-  background-color: #374151;
-}
-
-/* sidebar */
-aside.sidebar {
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  padding: 16px;
-  border-radius: 8px;
-  height: fit-content;
-}
-
-.calendar-header {
   text-align: center;
-  margin-bottom: 12px;
 }
 
-.calendar-grid {
+/* Sidebar */
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  border-radius: 6px;
+}
+/* Sidebar Title */
+.sidebar h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Kalender sederhana */
+#calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
+  gap: 5px;
+  margin-top: 10px;
 }
 
-.day-name {
-  font-weight: bold;
+.day {
   text-align: center;
-  padding: 4px 0;
-}
-
-.date {
-  background-color: white;
+  padding: 10px;
   border-radius: 6px;
-  text-align: center;
-  padding: 10px 0;
   cursor: pointer;
-  user-select: none;
-  border: 1px solid transparent;
-  transition: background-color 0.3s, border-color 0.3s;
+  background-color: #f3f4f6;
+  font-weight: 500;
+  color: #111827;
+  transition: background-color 0.2s;
 }
 
-.date.event {
-  background-color: #3b82f6;
-  color: white;
+.event-day {
+  background-color: #facc15;
+  color: #1f2937;
   font-weight: bold;
 }
 
-.date:hover {
-  border-color: #3b82f6;
+.day:hover {
+  background-color: #e5e7eb;
 }
 
-.date.selected {
-  border-color: #2563eb;
-  box-shadow: 0 0 5px #2563eb;
-}
-
-.event-info {
+.event-details {
   margin-top: 20px;
-  padding: 12px;
-  background-color: #e0e7ff;
-  border-radius: 8px;
-  min-height: 80px;
+  padding: 14px;
+  background-color: #fef08a;
+  border: 1px solid #eab308;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #1f2937;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.event-title {
-  font-weight: bold;
-  margin-bottom: 6px;
+.hidden {
+  display: none;
 }
-
-.no-event {
-  color: #555;
-  font-style: italic;
-}
-
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .navbar {
