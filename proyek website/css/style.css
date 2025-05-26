@@ -142,9 +142,10 @@ body {
 /* Wrapper grid layout */
 .content-wrapper {
   display: grid;
-  grid-template-columns: auto 340px;
+  grid-template-columns: 1fr 340px; /* main dan sidebar */
   gap: 20px;
   padding: 40px 20px;
+  align-items: start; /* penting agar sidebar tidak memengaruhi tinggi main */
 }
 
 /* Artikel */
@@ -172,6 +173,8 @@ body {
 }
 
 .card h3 {
+  color: black;
+  text-align: center;
   margin: 0;
 }
 
@@ -198,7 +201,9 @@ body {
   padding: 20px;
   border-left: 1px solid #ddd;
   border-radius: 6px;
+  box-sizing: border-box;
 }
+
 /* Sidebar Title */
 .sidebar h3 {
   font-size: 20px;
@@ -252,6 +257,68 @@ body {
 .hidden {
   display: none;
 }
+
+.popular-posts {
+  margin-top: 30px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.popular-posts h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.popular-posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 280px;
+  text-align: left;
+}
+
+.popular-posts li {
+  margin-bottom: 16px;
+}
+
+.popular-posts a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.popular-posts a:hover {
+  background-color: #f3f4f6;
+}
+
+.popular-posts img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.popular-posts .post-info h5 {
+  margin: 0;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.popular-posts .post-info p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .navbar {

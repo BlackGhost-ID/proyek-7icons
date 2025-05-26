@@ -47,3 +47,27 @@ function generateCalendar(days = 30) {
 }
 
 generateCalendar();
+
+const allPopularPosts = [
+  { title: "Judul Populer 1", description: "Deskripsi singkat 1", link: "#" },
+  { title: "Judul Populer 2", description: "Deskripsi singkat 2", link: "#" },
+  { title: "Judul Populer 3", description: "Deskripsi singkat 3", link: "#" },
+  { title: "Judul Populer 4", description: "Deskripsi singkat 4", link: "#" },
+  { title: "Judul Populer 5", description: "Deskripsi singkat 5", link: "#" },
+  { title: "Judul Populer 6", description: "Deskripsi singkat 6", link: "#" },
+  { title: "Judul Populer 7", description: "Deskripsi singkat 7", link: "#" },
+];
+
+const maxDisplay = 6;
+const popularList = document.getElementById("popular-list");
+
+const limitedPosts = allPopularPosts.slice(0, maxDisplay);
+
+limitedPosts.forEach((post) => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+      <a href="${post.link}">${post.title}</a>
+      <p>${post.description}</p>
+    `;
+  popularList.appendChild(li);
+});
