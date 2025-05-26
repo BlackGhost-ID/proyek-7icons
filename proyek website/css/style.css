@@ -360,98 +360,130 @@ body {
   font-weight: bold;
 }
 
-.music-section {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #f9fafb;
-}
-
-.music-section h2 {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #1f2937;
-}
-
-.music-grid {
+.album-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
 .music-card {
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  padding: 12px;
-  transition: transform 0.2s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .music-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
 }
 
-.music-card img {
+.album-cover {
   width: 100%;
-  border-radius: 6px;
+  height: auto;
+  display: block;
 }
 
-.music-card h3 {
-  margin: 8px 0 4px;
-  font-size: 18px;
-  color: #111827;
+.album-title {
+  margin: 15px 15px 5px;
+  font-size: 1.2rem;
+  color: #333;
 }
 
-.music-card p {
-  font-size: 14px;
-  color: #6b7280;
+.artist {
+  margin: 0 15px 15px;
+  color: #666;
+  font-size: 0.9rem;
 }
 
+/* Modal Styles */
 .modal {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-}
-
-.modal.hidden {
-  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
 }
 
 .modal-content {
-  background: #fff;
-  padding: 24px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  animation: modalopen 0.5s;
 }
 
-.close-button {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 24px;
-  color: #e11d48;
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-#album-tracklist {
-  margin-top: 20px;
-  list-style: decimal inside;
-  padding: 0;
+.close:hover {
+  color: #333;
 }
 
-#album-tracklist li {
-  padding: 6px 0;
-  border-bottom: 1px solid #e5e7eb;
+.modal-album {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.modal-album img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.tracklist {
+  margin-top: 20px;
+}
+
+.play-button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.play-button:hover {
+  background-color: #1ed760;
+}
+
+@media (max-width: 768px) {
+  .modal-album {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 10% auto;
+  }
 }
 
 /* Responsive for navbar and layout elements */

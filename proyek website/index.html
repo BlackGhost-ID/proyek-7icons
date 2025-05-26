@@ -178,36 +178,100 @@
     <!-- Main and sidebar end -->
 
     <!-- Album Start -->
-    <section class="music-section">
-      <h2>Album Musik</h2>
-      <div class="music-grid">
-        <div class="music-card" data-album="1">
-          <img src="https://placehold.co/300x300" alt="Album 1" />
-          <h3>Album 1</h3>
-          <p>Artis: Nama Artis</p>
-        </div>
-        <div class="music-card" data-album="2">
-          <img src="https://placehold.co/300x300" alt="Album 2" />
-          <h3>Album 2</h3>
-          <p>Artis: Nama Artis</p>
-        </div>
-        <div class="music-card" data-album="3">
-          <img src="https://placehold.co/300x300" alt="Album 3" />
-          <h3>Album 3</h3>
-          <p>Artis: Nama Artis</p>
-        </div>
+    <div class="album-container">
+      <!-- Content 1 -->
+      <div class="music-card" onclick="openModal('modal1')">
+        <img
+          src="https://placehold.co/300x300"
+          alt="Album Cover 1"
+          class="album-cover"
+        />
+        <h3 class="album-title">Judul Album 1</h3>
+        <p class="artist">Nama Artis 1</p>
       </div>
-    </section>
 
-    <!-- Modal -->
-    <div id="album-modal" class="modal hidden">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h3 id="modal-album-title">Album</h3>
-        <ul id="album-tracklist"></ul>
-        <!-- HARUS SUDAH ADA SAAT SCRIPT DIJALANKAN -->
+      <!-- Content 2 -->
+      <div class="music-card" onclick="openModal('modal2')">
+        <img
+          src="https://placehold.co/300x300"
+          alt="Album Cover 2"
+          class="album-cover"
+        />
+        <h3 class="album-title">Judul Album 2</h3>
+        <p class="artist">Nama Artis 2</p>
+      </div>
+
+      <!-- Content 3 -->
+      <div class="music-card" onclick="openModal('modal3')">
+        <img
+          src="https://placehold.co/300x300"
+          alt="Album Cover 3"
+          class="album-cover"
+        />
+        <h3 class="album-title">Judul Album 3</h3>
+        <p class="artist">Nama Artis 3</p>
       </div>
     </div>
+
+    <!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <div class="modal-album">
+      <img src="https://placehold.co/500x500" alt="Midnight Dreams">
+      <div class="album-info">
+        <h2>Midnight Dreams</h2>
+        <h3>The Night Owls • 2023 • 12 Lagu</h3>
+        <div class="tracklist">
+          <h4>Daftar Lagu:</h4>
+          <ol>
+            <li>Starry Night - 4:12</li>
+            <li>Moonlight Sonata - 3:45</li>
+            <li>Whispers in the Dark - 5:20</li>
+            <li>Dream Catcher - 4:33</li>
+            <li>Midnight Drive - 6:15</li>
+          </ol>
+        </div>
+        <div class="album-meta">
+          <p><strong>Genre:</strong> Jazz, Lo-fi</p>
+          <p><strong>Label:</strong> Night Sounds Records</p>
+        </div>
+        <button class="play-button">Putar Album</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <div class="modal-album">
+      <img src="https://placehold.co/500x500" alt="Summer Vibes">
+      <div class="album-info">
+        <h2>Summer Vibes</h2>
+        <h3>Beach Waves • 2022 • 10 Lagu</h3>
+        <div class="tracklist">
+          <h4>Daftar Lagu:</h4>
+          <ol>
+            <li>Ocean Breeze - 3:30</li>
+            <li>Sunset Paradise - 4:05</li>
+            <li>Palm Trees - 3:52</li>
+            <li>Island Time - 5:15</li>
+            <li>Tropical Nights - 4:40</li>
+          </ol>
+        </div>
+        <div class="album-meta">
+        <p><strong>Genre:</strong> Jazz, Lo-fi</p>
+        <p><strong>Label:</strong> Night Sounds Records</p>
+        </div>
+        <button class="play-button">Putar Album</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  
     <!-- Album End -->
 
     <!-- JavaScript -->
