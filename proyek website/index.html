@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Feather icons -->
@@ -162,7 +165,50 @@
       </aside>
     </div>
 
+    <!-- pagiation -->
+    <div class="pagination">
+      <a href="#" class="prev">&laquo; Prev</a>
+      <a href="#" class="page active">1</a>
+      <a href="" class="page">2</a>
+      <a href="" class="page">3</a>
+      <a href="" class="page">4</a>
+      <a href="" class="page">5</a>
+      <a href="" class="next">Next &raquo;</a>
+    </div>
     <!-- Main and sidebar end -->
+
+    <!-- Album Start -->
+    <section class="music-section">
+      <h2>Album Musik</h2>
+      <div class="music-grid">
+        <div class="music-card" data-album="1">
+          <img src="https://placehold.co/300x300" alt="Album 1" />
+          <h3>Album 1</h3>
+          <p>Artis: Nama Artis</p>
+        </div>
+        <div class="music-card" data-album="2">
+          <img src="https://placehold.co/300x300" alt="Album 2" />
+          <h3>Album 2</h3>
+          <p>Artis: Nama Artis</p>
+        </div>
+        <div class="music-card" data-album="3">
+          <img src="https://placehold.co/300x300" alt="Album 3" />
+          <h3>Album 3</h3>
+          <p>Artis: Nama Artis</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="album-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3 id="modal-album-title">Album</h3>
+        <ul id="album-tracklist"></ul>
+        <!-- HARUS SUDAH ADA SAAT SCRIPT DIJALANKAN -->
+      </div>
+    </div>
+    <!-- Album End -->
 
     <!-- JavaScript -->
     <script>

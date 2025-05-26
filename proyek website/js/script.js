@@ -71,3 +71,57 @@ limitedPosts.forEach((post) => {
     `;
   popularList.appendChild(li);
 });
+
+// Data album untuk modal
+document.addEventListener("DOMContentLoaded", function () {
+  const albumData = {
+    1: { title: "Album 1", tracks: ["Lagu 1", "Lagu 2", "Lagu 3"] },
+    2: { title: "Album 2", tracks: ["Track A", "Track B", "Track C"] },
+    3: { title: "Album 3", tracks: ["Song X", "Song Y", "Song Z"] },
+  };
+
+  document.querySelectorAll(".music-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const id = card.dataset.album;
+      const data = albumData[id];
+
+      document.getElementById("modal-album-title").textContent = data.title;
+
+      const trackList = document.getElementById("album-tracklist");
+      if (!trackList) return; // Hindari error jika elemen belum ada
+
+      trackList.innerHTML = "";
+      data.tracks.forEach((track) => {
+        const li = document.createElement("li");
+        li.textContent = track;
+        trackList.appendChild(li);
+      });
+
+      document.getElementById("album-modal").classList.remove("hidden");
+    });
+  });
+
+  document.querySelector(".close-button").addEventListener("click", () => {
+    document.getElementById("album-modal").classList.add("hidden");
+  });
+
+  window.addEventListener("click", function (e) {
+    const modal = document.getElementById("album-modal");
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+    }
+  });
+});
+
+// Event untuk menutup modal saat klik tombol close
+document.querySelector(".close-button").addEventListener("click", () => {
+  document.getElementById("album-modal").classList.add("hidden");
+});
+
+// Tutup modal jika klik area luar modal
+window.addEventListener("click", function (e) {
+  const modal = document.getElementById("album-modal");
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+input,
+button,
+select,
+textarea {
+  font-size: 16px;
+}
+
 body {
   margin: 50px;
   padding-top: 60px; /* Memberi ruang untuk fixed navbar */
@@ -181,6 +188,7 @@ body {
 .card p {
   font-size: 14px;
   color: #555;
+  text-align: center;
 }
 
 .card .btn {
@@ -319,7 +327,134 @@ body {
   color: #4b5563;
 }
 
-/* Responsive Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  gap: 5px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #e5e7eb;
+  color: #1f2937;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #d1d5db;
+}
+
+.pagination a.active {
+  background-color: #1f2937;
+  color: #fff;
+  pointer-events: none;
+}
+
+.pagination a.prev,
+.pagination a.next {
+  font-weight: bold;
+}
+
+.music-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9fafb;
+}
+
+.music-section h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.music-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 12px;
+  transition: transform 0.2s ease;
+}
+
+.music-card:hover {
+  transform: scale(1.02);
+}
+
+.music-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.music-card h3 {
+  margin: 8px 0 4px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.music-card p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: #e11d48;
+  cursor: pointer;
+}
+
+#album-tracklist {
+  margin-top: 20px;
+  list-style: decimal inside;
+  padding: 0;
+}
+
+#album-tracklist li {
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Responsive for navbar and layout elements */
 @media (max-width: 1200px) {
   .navbar {
     grid-template-columns: auto repeat(4, minmax(0, 1fr)) auto;
@@ -407,11 +542,29 @@ body {
     font-size: 1rem;
   }
 
-  .layout {
+  .layout,
+  .content-wrapper {
     grid-template-columns: 1fr;
   }
 
   .article-section {
     grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    margin-top: 20px;
+  }
+
+  .sidebar h3 {
+    font-size: 18px;
+  }
+
+  .popular-post-title {
+    font-size: 16px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
