@@ -375,6 +375,10 @@ body {
   transition: transform 0.3s ease;
 }
 
+.music-card p {
+  text-align: center;
+}
+
 .music-card:hover {
   transform: translateY(-5px);
 }
@@ -418,6 +422,18 @@ body {
   width: 80%;
   max-width: 800px;
   animation: modalopen 0.5s;
+}
+
+.album-info h2,
+h3,
+h4 {
+  text-align: center;
+  color: black;
+}
+
+.album-info li,
+.album-meta {
+  color: black;
 }
 
 @keyframes modalopen {
