@@ -373,10 +373,7 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-}
-
-.music-card p {
-  text-align: center;
+  cursor: pointer;
 }
 
 .music-card:hover {
@@ -393,15 +390,17 @@ body {
   margin: 15px 15px 5px;
   font-size: 1.2rem;
   color: #333;
+  text-align: center;
 }
 
 .artist {
   margin: 0 15px 15px;
   color: #666;
   font-size: 0.9rem;
+  text-align: center;
 }
 
-/* Modal Styles */
+/* Modal style */
 .modal {
   display: none;
   position: fixed;
@@ -415,25 +414,13 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  border-color: #fefefe;
   margin: 5% auto;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
   max-width: 800px;
   animation: modalopen 0.5s;
-}
-
-.album-info h2,
-h3,
-h4 {
-  text-align: center;
-  color: black;
-}
-
-.album-info li,
-.album-meta {
-  color: black;
 }
 
 @keyframes modalopen {
@@ -471,18 +458,39 @@ h4 {
   border-radius: 5px;
 }
 
+.album-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.album-info h2,
+.album-info h3,
+.album-info h4 {
+  text-align: center;
+  color: white;
+  padding-bottom: 15px;
+}
+
 .tracklist {
-  margin-top: 20px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.album-meta {
+  margin-top: 10px;
+  color: black;
 }
 
 .play-button {
+  align-self: flex-start;
   background-color: #1db954;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 16px;
-  margin-top: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -491,14 +499,106 @@ h4 {
   background-color: #1ed760;
 }
 
+.about-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.site-footer {
+  background-color: #1f2937; /* Warna gelap */
+  color: white;
+  padding: 20px 40px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo teks dan ikon di kiri */
+.footer-left .logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-left i {
+  stroke: white;
+  width: 24px;
+  height: 24px;
+}
+
+/* Teks di tengah */
+.footer-center {
+  text-align: center;
+  font-size: 14px;
+  flex: 1;
+  justify-content: center;
+  color: #d1d5db;
+}
+
+/* Ikon sosial media di kanan */
+.footer-right a i {
+  stroke: white;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+.footer-right a:hover i {
+  transform: scale(1.2);
+  stroke: #1db954; /* Hijau saat hover */
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .modal-album {
-    grid-template-columns: 1fr;
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 
-  .modal-content {
-    width: 90%;
-    margin: 10% auto;
+  .footer-center {
+    justify-content: center;
   }
 }
 

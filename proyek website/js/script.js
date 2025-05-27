@@ -48,48 +48,38 @@ function generateCalendar(days = 30) {
 
 generateCalendar();
 
-const allPopularPosts = [
-  { title: "Judul Populer 1", description: "Deskripsi singkat 1", link: "#" },
-  { title: "Judul Populer 2", description: "Deskripsi singkat 2", link: "#" },
-  { title: "Judul Populer 3", description: "Deskripsi singkat 3", link: "#" },
-  { title: "Judul Populer 4", description: "Deskripsi singkat 4", link: "#" },
-  { title: "Judul Populer 5", description: "Deskripsi singkat 5", link: "#" },
-  { title: "Judul Populer 6", description: "Deskripsi singkat 6", link: "#" },
-  { title: "Judul Populer 7", description: "Deskripsi singkat 7", link: "#" },
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".music-card");
+  const modals = document.querySelectorAll(".modal");
+  const closeBtns = document.querySelectorAll(".close");
 
-const maxDisplay = 6;
-const popularList = document.getElementById("popular-list");
+  // Buka modal saat klik card
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const albumId = card.dataset.album;
+      const modal = document.getElementById(`modal${albumId}`);
+      if (modal) {
+        modal.style.display = "block";
+      }
+    });
+  });
 
-const limitedPosts = allPopularPosts.slice(0, maxDisplay);
+  // Tutup modal saat klik tombol close
+  closeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".modal");
+      if (modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
 
-limitedPosts.forEach((post) => {
-  const li = document.createElement("li");
-  li.innerHTML = `
-      <a href="${post.link}">${post.title}</a>
-      <p>${post.description}</p>
-    `;
-  popularList.appendChild(li);
+  // Tutup modal saat klik luar konten
+  window.addEventListener("click", (e) => {
+    modals.forEach((modal) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
 });
-
-// Data album untuk modal
-function openModal(modalId) {
-  document.getElementById(modalId).style.display = "block";
-  document.body.style.overflow = "hidden"; // Prevent scrolling
-}
-
-function closeModal(modalId) {
-  document.getElementById(modalId).style.display = "none";
-  document.body.style.overflow = "auto"; // Enable scrolling
-}
-
-// Close modal when clicking outside content
-window.onclick = function (event) {
-  const modals = document.getElementsByClassName("modal");
-  for (let modal of modals) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  }
-};
