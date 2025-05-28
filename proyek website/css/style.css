@@ -146,79 +146,123 @@ body {
   ); /* Warna pink lebih gelap saat hover */
 }
 
-/* Wrapper grid layout */
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 340px; /* main dan sidebar */
+.container {
+  display: flex;
+  flex-direction: row;
   gap: 20px;
-  padding: 40px 20px;
-  align-items: start; /* penting agar sidebar tidak memengaruhi tinggi main */
+  padding: 20px;
 }
 
-/* Artikel */
 .article-section {
+  flex: 3;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .card h3 {
-  color: black;
-  text-align: center;
-  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff; /* Ganti sesuai background card kamu */
 }
 
 .card p {
-  font-size: 14px;
   color: #555;
-  text-align: center;
 }
 
 .card .btn {
   display: inline-block;
-  margin-top: auto;
-  padding: 10px;
-  background-color: #1f2937;
-  color: white;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 5px;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-  text-align: center;
 }
 
-/* Sidebar */
+.article-section h3,
+.sidebar h3,
+.sidebar h4 {
+  color: #000; /* Putih agar kontras dengan latar gelap */
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
 .sidebar {
-  background-color: #fff;
+  flex: 1;
+  background: #fff;
   padding: 20px;
-  border-left: 1px solid #ddd;
-  border-radius: 6px;
-  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar Title */
-.sidebar h3 {
-  font-size: 20px;
+.popular-posts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popular-posts li {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.popular-posts img {
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.popular-posts h4 {
+  color: #fff;
+  margin-top: 1rem;
   font-weight: bold;
-  color: #111827;
-  margin-bottom: 12px;
+}
+
+.post-info h5 {
+  margin: 0 0 5px;
+  font-size: 0.95rem;
+}
+
+.pagination-controls {
   text-align: center;
+  padding: 20px;
+}
+
+.pagination-controls a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px 12px;
+  background: #ddd;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination-controls a.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.pagination-controls a:hover {
+  background: #0056b3;
+  color: white;
 }
 
 /* Kalender sederhana */
@@ -714,5 +758,39 @@ body {
   .pagination {
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .article-section {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .popular-posts li {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular-posts img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .post-info h5 {
+    font-size: 13px;
+  }
+
+  .post-info p {
+    font-size: 11px;
   }
 }

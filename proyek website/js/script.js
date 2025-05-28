@@ -83,3 +83,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const articles = Array.from({ length: 26 }, (_, i) => ({
+  title: `Judul Artikel ${i + 1}`,
+  desc: `Ini adalah deskripsi singkat dari artikel ke-${i + 1}.`,
+  img: "https://placehold.co/600x300",
+}));
+
+const section = document.getElementById("article-section");
+const pagination = document.getElementById("pagination-controls");
+
+function getItemsPerPage(page) {
+  return page === 1 ? 6 : 10;
+}
+
+function renderArticles(page = 1) {
+  section.innerHTML = "";
+  const startIndex = page === 1 ? 0 : 6 + (page - 2) * 10;
+  const endIndex = startIndex + getItemsPerPage(page);
+  const items = articles.slice(startIndex, endIndex);
+
+  items.forEach((item) => {
+    section.innerHTML += `
+      <div class="card">
+        <img src="${item.img}" alt="${item.title}" />
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <a href="#" class="btn">Baca Selengkapnya</a>
+      </div>
+    `;
+  });
+
+  renderPagination(page);
+}
+
+function renderPagination(activePage = 1) {
+  const totalPages = Math.ceil(
+    articles.length <= 6 ? 1 : 1 + Math.ceil((articles.length - 6) / 10)
+  );
+
+  pagination.innerHTML = "";
+
+  if (activePage > 1) {
+    pagination.innerHTML += `<a href="#" data-page="${
+      activePage - 1
+    }">&laquo; Prev</a>`;
+  }
+
+  for (let i = 1; i <= totalPages; i++) {
+    pagination.innerHTML += `<a href="#" class="${
+      i === activePage ? "active" : ""
+    }" data-page="${i}">${i}</a>`;
+  }
+
+  if (activePage < totalPages) {
+    pagination.innerHTML += `<a href="#" data-page="${
+      activePage + 1
+    }">Next &raquo;</a>`;
+  }
+
+  document.querySelectorAll(".pagination-controls a").forEach((el) =>
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const page = parseInt(el.getAttribute("data-page"));
+      renderArticles(page);
+    })
+  );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderArticles(1);
+});
